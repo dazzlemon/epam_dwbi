@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\begin{document}
+    DBMS - DataBase Management System
+    
+    \section{Components of DBMS}
+    \begin{itemize}
+        \item Data
+        \item Software
+        \item Hardware
+        \item Procedures (general rules and instructions on how to work with database)
+        \item Database Access Language (DAL) (sql in most cases)
+        \item Database Engine
+        \item Data Dictionary (metadata repository)
+        \item Query Processor \begin{itemize}
+            \item DML(Data Manipulation Language) Compiler
+            \item DDL(Data Definition Language) Interperter
+            \item Embedded DML Pre-compiler
+            \item Query Optimizer
+        \end{itemize}
+        \item Managers \begin{itemize}
+            \item Database Management tools (GUI/CLI)
+            \item Database Installation and Configuration
+            \item Data loading and Migration
+            \item Backup and Recovery
+            \item Resource Management and Task Scheduling
+            \item etc
+        \end{itemize}
+    \end{itemize}
+
+    RDBMS - Relational DataBase Management System \\
+    SQL - Structured Query Language, consists of next groups of commands (Data something Language)
+    \begin{itemize}
+        \item DQL (Query)        - on the data within schema objects (e.g. select)
+        \item DDL (Definition)   - on db objects such as tables, indexes, users (e.g. create, clter, drop, truncate)
+        \item DCL (Control)      - control access to db (e.g. grant, revoke)
+        \item DML (Manipulation) - manipulate data (e.g. insert, update, delete)
+    \end{itemize}
+
+    NoSQL  - not relational \\
+    ACID   - Atomicity, Consistency, Isolation, Durability \\
+    IMDBMS - In-Memory DataBase Management System (faster i/o operations) \\
+    CDBMS  - Columnar DataBase Management System (data stored in columns instead of rows) \\
+    CBDBMS - Cloud Based DataBase Management System \\
+    SMP    - Symmetric MultiProcessing (Multi CPU in one PC) \\
+    MPP    - Massively Paralel Processing (Multi PC) \\
+    RAID   - Redundant Array of Independent Disks \\
+    \begin{itemize}
+        \item 0 (striping)  - n times faster, but if single disk dies whole system dies
+        \item 1 (mirroring) - same speed but if one disk dies system still works
+        \item 2, 3, 4, 5, 6 etc - go check wiki lmao
+    \end{itemize}
+\end{document}
