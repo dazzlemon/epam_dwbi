@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{hyperref}
+
+\begin{document}
+    Array - kinda list \\
+    Array 2D - kinda matrix \\
+    Array 3D+ - kinda tensor \\
+
+    Binary Plus Tree (B+Tree) - Binary Tree modification, where intermediate nodes dont containt data,
+        but values against which actual data is compared and then stored in leaf nodes. \\
+    
+    Hash function - maps arbitrary sized data to fixed size data. \\
+
+    Set Operations:
+    $A = \{1,    3, 4, 5,    7      \}$ \\
+    $C = \{1, 2,    4,    6, 7, 8, 9\}$
+    \begin{itemize}
+        \item Union:         $A \cup       B         = {1, 2, 3, 4, 5, 6, 7, 8, 9}$
+        \item Intersect:     $A \cap       B         = {1, 4, 7}$
+        \item Except(Minus): $A \backslash B = A - B = {3, 5}$
+    \end{itemize}
+
+    Join combines columns from one or more tables. \\
+    Relations - inner, outer. \\
+    Joins:
+    \begin{itemize}
+        \item Nested loop \url{https://en.wikipedia.org/wiki/Nested_loop_join}
+        \item Merge join \url{https://en.wikipedia.org/wiki/Sort-merge_join}
+        \item Hash join \url{https://en.wikipedia.org/wiki/Hash_join}
+    \end{itemize}
+
+    Transaction is a single unit of logic or work, sometimes made up of multiple operations.
+    Any logical calculation done in a consistent mode in a database is known as a transaction.
+    \begin{itemize}
+        \item Atomicity   - transaction must either complete in its entirety or have no effect whatsoever
+        \item Consistency - transaction must conform to existing constraints in the database
+        \item Isolation   - transaction must not affect other transactions
+        \item Durability  - transaction must get written to persistent storage
+    \end{itemize}
+
+    Isolation levels define the degree to which a transaction must be 
+    isolated from the data modifications made by any other transaction in 
+    the database system \\
+
+    Levels of transaction isolation:
+    \begin{itemize}
+        \item Read uncommitted - allows dirty reads(transactions that hasn't been commited yet).
+        \item Read committed   - guarantees that any data read is commited at the moment of reading, but allows non repeatable read
+            (if row read many times it may contain different data).
+        \item Repeatable Read  - transaction holds lock on all rows it is using, allows phantom read
+            (same query can return different result in different points in time).
+        \item Serializable     - transaction fully locks whole database it works on.
+    \end{itemize}
+\end{document}
