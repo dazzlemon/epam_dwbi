@@ -1,0 +1,115 @@
+\documentclass{article}
+\begin{document}
+    relationships:
+    \begin{itemize}
+        \item 1to1
+        \item 1to many
+        \item many to many 
+    \end{itemize}
+
+    keys:
+    \begin{itemize}
+        \item Primary - unique key that identifies row in table
+        \item Candidate - set of attributes that uniquely id the row, shouldnt have any redundant data
+        \item super - same as Candidate but can have redundant data
+        \item alternate - alternate to Primary
+        \item simple key - one column
+        \item composite - multi column
+    \end{itemize}
+
+    NATURAL Primary key - primary key that has some info about row
+    surrogate pk - is fully artificial.
+
+    surrogate is preffered because it is smaller,
+    doesnt require cascading changes and can be generated if some part of row is null.
+
+    Foreign key is column that refers to PK in another table.
+    Recursive FK refers to PK in same table.
+
+    constraints are used to specify rules for data in table and its columns.
+    \begin{itemize}
+        \item NOT NULL
+        \item UNIQUE
+        \item PRIMARY KEY
+        \item FOREIGN KEY
+        \item CHECK - specific condition
+        \item DEFAULT - specifies non null value if it is not provided
+        \item INDEX - used to create and retrieve data from db very fast.
+    \end{itemize}
+
+    CREATE TABLE <t name> ( \\
+        <col name> <type> <constraint: NOT NULL>, \\
+        <col> <type> DEFAULT <def val>,
+        <col> <type> IDENTITY(<start>, <incr>) ...,
+        ...\\
+        CONSTRAINT <constraint name> UNIQUE(<cols>), \\
+        PRIMARY KEY(<cols>), \\
+        FOREIGN KEY(<cols>) REFERENCES <table name>(<cols>), \\
+        CHECK (<condition>)
+    );
+
+    ALTER TABLE \\
+    <ADD|DROP> <constraint>;
+
+    CONSTRAINT <constraint name> only needed if you need to add name for constraint.
+    only one identity column per table
+
+    Window funcitons operate on a set of rows and return a sipnle value for each row in the underlying query
+    (e.g. sets same value for column for n rows).
+
+    SELECT \\
+    <value> OVER(<partition by order by>) AS <alias> \\
+    FROM <t>;
+
+    PARTITION BY - divides whole query in groups of rows with same value in column(s)
+
+    OVER(partition by order by ROWS)
+
+    ROWS: \\
+    SELECT Date \\
+         , Medium​ \\
+         , Conversions​ \\
+         , SUM(Conversions) OVER( \\
+            PARTITION BY Date \\
+            ORDER BY Conversions \\
+            ROWS BETWEEN CURRENT ROW AND 1 FOLLOWING -- 'Sum' will be SUM() of current and next row \\
+         ) AS 'Sum' \\
+    FROM Orders
+
+    window functions:
+    \begin{itemize}
+        \item Aggregate - MAX, MIN, SUM, AVG, COUNT
+        \item Ranking - RANK, DENSE_RANK, ROW_NUMBER, NTILE
+        \item LAG, LEAD, FIRST_VALUE, LAST_VALUE, CUME_DIST.
+    \end{itemize}
+    \begin{itemize}
+        \item ROW_NUMBER - just the row number(from 1 ascending)
+        \item RANK - kinda like row number but if row has same value as previous it will have same RANK,
+            but new value always has ROW_NUMBER as its RANK
+        \item DENSE_RANK - same as RANK but new RANK is not ROW_NUMBER but previous + 1
+        \item NTILE - splits into n row groups
+        \item FIRST_VALUE - returns first value of specified query(column)
+        \item LAST_VALUE
+        \item LAG - kinda like python's pairwise but with default value(LAG(1, 2, 3) -> (0, 1), (1, 2), (2, 3))
+        \item LEAD - same as LAG but the other way around (LEAD(1, 2, 3) -> (1, 2), (2, 3), (3, 0))
+    \end{itemize}
+
+    GETDATE - current time
+    DATEPART - returns part of date/time (year/month/second etc)
+    DATEADD - shift timestamp
+    DATEDIFF - difference between two dates
+    CONVERT - contverts expression to datatype according to style
+
+    String functions:
+    \begin{itemize}
+        \item CONCAT
+        \item CHAR - returns char based on code
+        \item LEFT - first n characters
+        \item LEN - length of str
+        \item REPLACE
+        \item REVERSE
+        \item TRIM - removes whitespace and other specified characters from start and end of string
+        \item UPPER - upper case
+        \item STUFF - removes n characters at ith index and inserts new substing in their place
+    \end{itemize}
+\end{document}
