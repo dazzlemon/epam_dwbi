@@ -3,14 +3,10 @@
 --      - b. AND, NOT, IN, BETWEEN
 --      - d. LIMIT
 --      - e. INNER, RIGHT, FULL JOIN
---      - f. UNION, UNION ALL
---      - g. AGGREGATE FUNCTIONS (COUNT, MIN, MAX, SUM, AVG)
---      - h. GROUP BY
+--      - f. UNION ALL
+--      - g. MIN, MAX, SUM, AVG
 --      - i. HAVING
---      - j. + Subqueries.
--- - 8. Save your SELECT queries to .sql file (other than in step 6).
--- - 9. Create Diagram of your database schema. It is an optional task. You can create a diagram using SQL Server Management Studio if you use SQL Server. Or you can draw one.
--- - 10. Upload your homework (2 .sql files and picture of diagram of your DB Schema) to your Homework channel, SQL Basics folder.
+-- - 9. Create Diagram of your database schema.
 
 USE School;
 
@@ -76,3 +72,12 @@ UNION
     OR IsOddWeek IS NULL
     GROUP BY GroupId)
 ORDER BY GroupId, WeekParity;
+
+
+-- How many different classes each group has
+SELECT GroupId
+     , COUNT(*) AS 'Count'
+FROM (SELECT DISTINCT ClassId
+                    , GroupId
+      FROM dbo.Schedule) AS t -- didn't work without "AS t", idk why
+GROUP BY GroupId;
