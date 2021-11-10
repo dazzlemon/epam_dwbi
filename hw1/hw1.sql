@@ -1,11 +1,6 @@
--- - 7. Write 5 - 10 SELECT queries. Feel free to add/update values in the tables if you need. Try to use as much statements you learned as possible (listed below), but please, DO NOT overcomplicate your queries. Hint: you may combine a few statements in a single query (for example: 2 types of joins, group by, aggregate functions etc.) Statements to use:
---      - a. DISTINCT
 --      - b. AND, NOT, IN, BETWEEN
---      - d. LIMIT
 --      - e. INNER, RIGHT, FULL JOIN
---      - f. UNION ALL
 --      - g. MIN, MAX, SUM, AVG
---      - i. HAVING
 -- - 9. Create Diagram of your database schema.
 
 USE School;
@@ -81,3 +76,29 @@ FROM (SELECT DISTINCT ClassId
                     , GroupId
       FROM dbo.Schedule) AS t -- didn't work without "AS t", idk why
 GROUP BY GroupId;
+
+
+-- Groups with at least 20 students
+SELECT GroupId
+FROM dbo.Student
+GROUP BY GroupId
+HAVING COUNT(*) >= 20;
+
+
+-- How many lectures each teacher has
+SELECT CONCAT(FirstName, ' ', LastName)
+     , [Count]
+FROM (
+    SELECT LecturerId
+         , COUNT(*) AS 'Count'
+    FROM (
+        SELECT DISTINCT ClassId
+                      , LecturerId
+        FROM dbo.Schedule as s
+            JOIN dbo.Class as c
+                ON c.Id = s.ClassId
+            JOIN dbo.Teacher as t
+                ON c.LecturerId = t.Id) AS t
+    GROUP BY LecturerId) as t1
+    JOIN dbo.Teacher as t2
+        ON t2.Id = t1.LecturerId;
