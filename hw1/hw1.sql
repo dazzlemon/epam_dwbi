@@ -1,7 +1,6 @@
 -- - 7. Write 5 - 10 SELECT queries. Feel free to add/update values in the tables if you need. Try to use as much statements you learned as possible (listed below), but please, DO NOT overcomplicate your queries. Hint: you may combine a few statements in a single query (for example: 2 types of joins, group by, aggregate functions etc.) Statements to use:
 --      - a. DISTINCT
---      - b. AND, OR, NOT, IN, BETWEEN
---      - c. ORDER BY
+--      - b. AND, NOT, IN, BETWEEN
 --      - d. LIMIT
 --      - e. INNER, RIGHT, FULL JOIN
 --      - f. UNION, UNION ALL
@@ -15,6 +14,7 @@
 
 USE School;
 
+-- Classes and teachers
 SELECT c.Id
      , c.[Name]
      , CONCAT(t.FirstName,  ' ', t.Lastname)  AS Lecturer 
@@ -33,11 +33,46 @@ FROM dbo.Class AS c
 WHERE c.[Name] LIKE '%Theory';
 -- is there a way to make it "DRY"?
 
-SELECT Day
+
+-- Schedule for odd week
+SELECT GroupId
+     , (CASE
+            WHEN Day = 0 THEN 'Monday'
+            WHEN Day = 1 THEN 'Tuesday'
+            WHEN Day = 2 THEN 'Wednesday'
+            WHEN Day = 3 THEN 'Thursday'
+            WHEN Day = 4 THEN 'Friday'
+            WHEN Day = 5 THEN 'Saturday'
+            WHEN Day = 6 THEN 'Sunday'
+        END) AS 'Day'
      , [Time]
      , (CASE
             WHEN IsOddWeek = 1 THEN 'Odd'
             WHEN IsOddWeek = 0 THEN 'Even'
+            ELSE 'Both'
         END) AS WeekParity
 FROM dbo.Schedule
-ORDER BY GroupId;
+WHERE IsOddWeek = 1
+   OR IsOddWeek IS NULL
+ORDER BY GroupId, 'Day';
+
+-- How many classes per week for each group
+( 
+    SELECT GroupId
+        , COUNT(*) AS 'Count'
+        , 'Odd' AS WeekParity   
+    FROM dbo.Schedule
+    WHERE IsOddWeek = 1
+    OR IsOddWeek IS NULL
+    GROUP BY GroupId
+
+UNION
+
+    SELECT GroupId
+        , COUNT(*) AS 'Count'
+        , 'Even' AS WeekParity
+    FROM dbo.Schedule
+    WHERE IsOddWeek = 0
+    OR IsOddWeek IS NULL
+    GROUP BY GroupId)
+ORDER BY GroupId, WeekParity;
