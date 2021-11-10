@@ -1,8 +1,3 @@
---      - b. AND, NOT, IN, BETWEEN
---      - e. INNER, RIGHT, FULL JOIN
---      - g. MIN, MAX, SUM, AVG
--- - 9. Create Diagram of your database schema.
-
 USE School;
 
 -- Classes and teachers
