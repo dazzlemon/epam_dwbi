@@ -1,0 +1,117 @@
+\documentclass{article}
+
+\begin{document}
+    View - virtual table based on the result set of sql statement(kinda proxy to original db)
+    Types of views:
+    \begin{itemize}
+        \item Indexed - view that has been materialized.
+            You index a view by creating a unique clustered index on it
+            (clustered \approx sorted, only one per table can exist(thereby unique)).
+        \item Partitioned - joins horizontally parti data from a set of member tables
+        \item System - expos catalog metadata
+    \end{itemize}
+
+    index - kinda lookup table
+
+    CREATE VIEW <view name>
+    WITH SCHEMABINDING AS
+    SELECT <cols>
+    FROM <t>
+    GO
+
+    CREATE UNIQUE CLUSTERED INDEX <view name> -- or is it <index name>
+    ON <view name>(<index key columns>)
+
+    partitioned view:
+    CREATE VIEW <view name>
+    AS
+            SELECT <cols>
+            FROM <t1>
+        UNION ALL
+            SELECT <cols>
+            FROM <t2>
+        UNION ALL
+            SELECT <cols>
+            FROM <t3>
+
+    Select db -> views -> System views
+
+    <CREATE | ALTER> VIEW <v> AS
+    SELECT <cols>
+    FROM <t>
+    WHERE <cond>;
+
+    You can update underlying tables using view, but only one table at once, computed columns cant be updated(kinda obvious)
+
+    UPDATE <v>
+    SET <col = val>
+    WHERE <cond>;
+
+    INSERT INTO <view> (<cols>)
+    VALUES (<vals>);
+
+    Trigger - special procedure that executes in responce to certain action on table(e.g. insert delete update etc)
+    DML triger types:
+    \begin{itemize}
+        \item AFTER - after the action (INSERT UPDATE MERGE or DELETE)
+        \item INSTEAD OF - override the action
+    \end{itemize}
+    
+    CREATE TRIGGER <trigger>
+    ON <table>
+    <AFTER | INSTEAD OF> <INSERT | UPDATE | DELETE>
+    AS <transact sql statement>
+    GO
+
+    ALTER TRIGGER <trigger>
+        ON <table>
+        <AFTER | INSTEAD OF> <INSERT | UPDATE | DELETE>
+    AS <statement>
+
+    CREATE TRIGGER <tr>
+    ON <DATABASE | ALL SERVER>
+    <FOR | AFTER> <EVENT TYPE | EVENT GROUP>
+    AS <statement>
+
+    event types:
+    \begin{itemize}
+        \item CREATE_VIEW
+        \item ALTER_VIEW
+        \item DROP_VIEW
+        \item CREATE_TABLE
+        \item DROP_DATABASE
+        \item \dots
+    \end{itemize}
+
+    create trigger statement must be first in batch and can only apply to one table.
+    a trigger is created only in current db.
+    truncate table doesn't trigger delete trigger.
+    instead of delete/update triggers cant be defined on tables with cascade foreign keys.
+
+    Grouping & Ranking functions
+
+    GROUP BY
+    GROUP BY GROUPING SETS (<sets>)
+    GROUP BY ROLLUP (<set>)
+    GROUP BY CUBE (<set>)
+
+    ROLLUP (1, 2, 3) is same as GROUPING SETS (
+        1 
+        1, 2
+        1, 2, 3
+    )
+
+    CUBE (1, 2, 3) is same as GROUPING SETS (
+        1
+        2
+        3
+        1, 2
+        1, 3
+        2, 3
+        1, 2, 3
+    )
+
+    XML datatypes
+    sp_xml_preparedocument
+    sp_xml_removedocument
+\end{document}
