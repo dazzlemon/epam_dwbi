@@ -187,9 +187,32 @@ END CATCH
 
     \end{section}
     \begin{section}{dynamic queries}
+        PIVOT - rotates a table-valued expression. It 
+        turns the unique values in one column into multiple 
+        columns in the output and performs aggregations on any 
+        remaining column values.
+        $EXEC(<sql~statement~in~string>)$
     
     \end{section}
     \begin{section}{filestream and free text search}
+    FILESTREAM - attribute that allows to store data in filesystem, allowing $>2gb$ \\
+    FREETEXT is kinda like LIKE but more like search engine(e.g. google), searches in FULLTEXT
     
+    \begin{lstlisting}[ language=SQL
+        , deletekeywords={IDENTITY}
+        , deletekeywords={[2]INT}
+        , morekeywords={clustered}
+        , framesep=8pt
+        , xleftmargin=40pt
+        , framexleftmargin=40pt
+        , frame=tb
+        , framerule=0pt 
+        ]
+CREATE FULLTEXT CATALOG ftCatalog AS DEFAULT;
+
+CREATE FULLTEXT INDEX ON [Production].[ProductDescription](Description)
+KEY INDEX [PK_ProductDescription_ProductDescriptionID]
+    \end{lstlisting}
+
     \end{section}
 \end{document}
