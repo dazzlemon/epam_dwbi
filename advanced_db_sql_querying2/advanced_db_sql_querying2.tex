@@ -1,8 +1,195 @@
 \documentclass{article}
+\usepackage[paperwidth=841pt,paperheight=595pt,top=28pt,right=28pt,bottom=28pt,left=28pt, includefoot, includehead]{geometry}
+\usepackage{xcolor,listings}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{hyperref}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{HTML}{C42043}
+\definecolor{backcolour}{HTML}{F2F2F2}
+\definecolor{bookColor}{cmyk}{0,0,0,0.90}  
+\color{bookColor}
+
+\lstset{upquote=true}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codepurple},
+    numberstyle=\numberstyle,
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=10pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+}
+\lstset{style=mystyle}
+
+\newcommand\numberstyle[1]{%
+    \footnotesize
+    \color{codegray}%
+    \ttfamily
+    \ifnum#1<10 0\fi#1 |%
+}
 
 \begin{document}
-    user defined functions \\
-    transactions and error handling \\
-    dynamic queries \\
-    filestream and free text search
+    \begin{section}{user defined functions(UDF)}
+        types:
+        \begin{itemize}
+            \item Scalar - returns a single value
+            \item Table valued - returns a table
+            \item System - built ins
+        \end{itemize}
+
+        \begin{lstlisting}[ language=SQL
+                          , deletekeywords={IDENTITY}
+                          , deletekeywords={[2]INT}
+                          , morekeywords={clustered}
+                          , framesep=8pt
+                          , xleftmargin=40pt
+                          , framexleftmargin=40pt
+                          , frame=tb
+                          , framerule=0pt 
+                          ]
+CREATE FUNCTION <fname> (<params>)
+RETURNS <ftype>
+AS BEGIN
+    DECLARE <result> <ftype>
+    SELECT  <result> = <statement>
+    RETURN  <result>
+END
+        \end{lstlisting}
+        udf agrregates: \\
+        \url{https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/create-user-defined-aggregates?view=sql-server-ver15}
+    
+        \begin{lstlisting}[ language=SQL
+                          , deletekeywords={IDENTITY}
+                          , deletekeywords={[2]INT}
+                          , morekeywords={clustered}
+                          , framesep=8pt
+                          , xleftmargin=40pt
+                          , framexleftmargin=40pt
+                          , frame=tb
+                          , framerule=0pt 
+                          ]
+ALTER FUNCTION <f>
+...
+
+IF OBJECT_ID (<fname>, N'IF') IS NOT NULL
+    DROP FUNCTION <fname>
+        \end{lstlisting}
+
+    u cant rename udfs \\
+    udf disadvantages:
+    \begin{itemize}
+        \item CANNOT BE USED TO PERFORM ACTIONS THAT MODIFY THE DATABASE STATE
+        \item CAN NOT RETURN MULTIPLE RESULT SETS
+        \item UDFs dont support error handling
+        \item CANNOT CALL stored procedure
+        \item cannot make use of dynamic sql or temp tables
+        \item FOR XML is not allowed
+        \item cannot call another $>32$ deep
+    \end{itemize}
+    \end{section}
+    \begin{section}{transactions and error handling}
+
+    Transaction is a single unit of work \\
+    if its successful the result is commited and its permanent \\
+    otherwise it can be canceled or rolled back
+
+    ACID:
+    \begin{itemize}
+        \item Atomicity
+        \item Isolation
+        \item Consistency
+        \item Durability
+    \end{itemize}
+
+    \begin{lstlisting}[ language=SQL
+                      , deletekeywords={IDENTITY}
+                      , deletekeywords={[2]INT}
+                      , morekeywords={clustered}
+                      , framesep=8pt
+                      , xleftmargin=40pt
+                      , framexleftmargin=40pt
+                      , frame=tb
+                      , framerule=0pt 
+                      ]
+BEGIN <TRAN | TRANSACTION> <tname>
+WITH MARK [ '<description>' ]
+...
+-- tname and description are optional
+-- tname can be variable
+
+COMMIT <TRAN | TRANSACTION> <tname>
+-- tname is optional
+
+ROLLBACK <TRAN | TRANSACTION> <tname | savepoint>
+
+SAVE <TRAN | TRANSACTION> <savepoint>
+
+SET TRANSACTION ISOLATION LEVEL <level>
+    \end{lstlisting}
+
+        Isolation levels:
+        \begin{itemize}
+            \item READ UNCOMMITTED
+            \item READ COMMITTED - default
+            \item REPEATABLE READ
+            \item SNAPSHOT
+            \item SERIALIZABLE
+        \end{itemize}
+
+        
+        \begin{lstlisting}[ language=SQL
+                          , deletekeywords={IDENTITY}
+                          , deletekeywords={[2]INT}
+                          , morekeywords={clustered}
+                          , framesep=8pt
+                          , xleftmargin=40pt
+                          , framexleftmargin=40pt
+                          , frame=tb
+                          , framerule=0pt 
+                          ]
+@@error = 0 -- success
+@@error = 1 -- fail
+
+RAISERROR(<msg>, <severity>, <state>)
+
+BEGIN TRY
+    <statement>
+END TRY
+BEGIN CATCH
+    <statement>
+END CATCH
+        \end{lstlisting}
+
+        Data available in catch:
+        \begin{itemize}
+            \item ERROR\_NUMBER – returns the internal number of the error
+            \item ERROR\_STATE – returns the information about the source
+            \item ERROR\_SEVERITY – returns the information about anything from informational errors to errors 
+                user of DBA can fix, etc.
+            \item ERROR\_LINE – returns the line number at which an error happened on
+            \item ERROR\_PROCEDURE – returns the name of the stored procedure or function
+            \item ERROR\_MESSAGE – returns the most essential information and that is the message text of the error
+        
+        \end{itemize}
+        
+
+    \end{section}
+    \begin{section}{dynamic queries}
+    
+    \end{section}
+    \begin{section}{filestream and free text search}
+    
+    \end{section}
 \end{document}
