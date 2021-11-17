@@ -1,0 +1,455 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.10.4)  17 NOV 2021 16:36
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex
+(/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18> (/usr/share/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+)
+\c@part=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count187
+\l__pdf_internal_box=\box47
+) (/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.aux)
+\openout1 = `advanced_db_sql_querying.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:9: Missing $ inserted.
+<inserted text> 
+                $
+l.9             (clustered \approx
+                                   sorted, only one per table can exist(ther...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 9.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:10: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.10         \item
+                   Partitioned - joins horizontally parti data from a set of...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:10: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.10         \item P
+                    artitioned - joins horizontally parti data from a set of...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:10: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.10         \item P
+                    artitioned - joins horizontally parti data from a set of...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:11: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11         \item
+                   System - expos catalog metadata
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:11: Missing $ inserted.
+<inserted text> 
+                $
+l.11         \item S
+                    ystem - expos catalog metadata
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:11: Missing } inserted.
+<inserted text> 
+                }
+l.11         \item S
+                    ystem - expos catalog metadata
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (134.3277pt too wide) in paragraph at lines 7--11
+\OT1/cmr/m/n/10 unique clus-tered in-dex on it (clus-tered $\OMS/cmsy/m/n/10 ^^Y \OML/cmm/m/it/10 sorted; onlyonepertablecanexist\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 therebyunique\OT1/cmr/m/n/10 ))\OML/cmm/m/it/10 :Partitioned \OMS/cmsy/m/n/10 ^^@
+ []
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:11: Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.11         \item S
+                    ystem - expos catalog metadata
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+Overfull \hbox (2.34116pt too wide) in paragraph at lines 16--21
+[]\OT1/cmr/m/n/10 CREATE VIEW <view name> WITH SCHEMABIND-ING AS SE-LECT <cols>
+ []
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:78: Missing $ inserted.
+<inserted text> 
+                $
+l.78         \item CREATE_
+                          VIEW
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:79: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.79         \item
+                   ALTER_VIEW
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:79: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.79         \item A
+                    LTER_VIEW
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:79: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.79         \item A
+                    LTER_VIEW
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:80: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.80         \item
+                   DROP_VIEW
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:80: Missing $ inserted.
+<inserted text> 
+                $
+l.80         \item D
+                    ROP_VIEW
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:80: Missing } inserted.
+<inserted text> 
+                }
+l.80         \item D
+                    ROP_VIEW
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:80: Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.80         \item D
+                    ROP_VIEW
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:80: Missing $ inserted.
+<inserted text> 
+                $
+l.80         \item DROP_
+                        VIEW
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:81: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81         \item
+                   CREATE_TABLE
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:81: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81         \item C
+                    REATE_TABLE
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:81: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81         \item C
+                    REATE_TABLE
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:82: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.82         \item
+                   DROP_DATABASE
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:82: Missing $ inserted.
+<inserted text> 
+                $
+l.82         \item D
+                    ROP_DATABASE
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:82: Missing } inserted.
+<inserted text> 
+                }
+l.82         \item D
+                    ROP_DATABASE
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:82: Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.82         \item D
+                    ROP_DATABASE
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:82: Missing $ inserted.
+<inserted text> 
+                $
+l.82         \item DROP_
+                        DATABASE
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:83: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83         \item
+                   \dots
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:83: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83         \item \dots
+                        
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:83: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83         \item \dots
+                        
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:84: LaTeX Error: Command \end{itemize} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.84     \end{itemize}
+                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:84: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.84     \end{itemize}
+                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:84: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.84     \end{itemize}
+                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:84: Missing $ inserted.
+<inserted text> 
+                $
+l.84     \end{itemize}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:91: Misplaced alignment tab character &.
+l.91     Grouping &
+                    Ranking functions
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:115: Missing $ inserted.
+<inserted text> 
+                $
+l.115     sp_
+             xml_preparedocument
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.tex:117: Missing $ inserted.
+<inserted text> 
+                $
+l.117 \end{document}
+                    
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[2] (/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.aux) ) 
+Here is how much of TeX's memory you used:
+ 384 strings out of 478994
+ 7452 string characters out of 5864751
+ 297856 words of memory out of 5000000
+ 17950 multiletter control sequences out of 15000+600000
+ 403765 words of font info for 28 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 44i,5n,50p,213b,118s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on /home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying/advanced_db_sql_querying.pdf (2 pages, 61780 bytes).
+PDF statistics:
+ 32 PDF objects out of 1000 (max. 8388607)
+ 22 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
