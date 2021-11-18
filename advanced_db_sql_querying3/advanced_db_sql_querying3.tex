@@ -1,8 +1,123 @@
 \documentclass{article}
+\usepackage[paperwidth=841pt,paperheight=595pt,top=28pt,right=28pt,bottom=28pt,left=28pt, includefoot, includehead]{geometry}
+\usepackage{xcolor,listings}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{hyperref}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{HTML}{C42043}
+\definecolor{backcolour}{HTML}{F2F2F2}
+\definecolor{bookColor}{cmyk}{0,0,0,0.90}  
+\color{bookColor}
+
+\lstset{upquote=true}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codepurple},
+    numberstyle=\numberstyle,
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=10pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+}
+\lstset{style=mystyle}
+
+\newcommand\numberstyle[1]{%
+    \footnotesize
+    \color{codegray}%
+    \ttfamily
+    \ifnum#1<10 0\fi#1 |%
+}
 
 \begin{document}
-    Stored Procedures
-    computed columns
-    partitions
-    geography and geometry types
+    \begin{section}{Stored Procedures}
+        stored procedure(SP) - sql code that can be run multiple times with different params \\
+        types of SPs:
+        \begin{itemize}
+            \item user defined
+            \item temporary - tempdb
+            \item system
+        \end{itemize}
+
+        \begin{lstlisting}[ language=SQL
+                          , deletekeywords={IDENTITY}
+                          , deletekeywords={[2]INT}
+                          , morekeywords={clustered}
+                          , framesep=8pt
+                          , xleftmargin=40pt
+                          , framexleftmargin=40pt
+                          , frame=tb
+                          , framerule=0pt 
+                          ]
+CREATE PROCEDURE <pname> <@parname partype, ...>
+AS <sql statement>
+<RETURN ...> -- optional
+
+EXEC <pname> <@parname = parval, ...>
+EXEC @val = <pname> <params>
+
+SET NOCOUNT ON -- wont show how many rows affected
+
+@param type OUTPUT -- in create 
+@param OUTPUT -- in EXEC, @param should be declared with same type
+
+SET ANSI_NULLS ON -- NULL comparisons always return NULL(as it is intended)
+SET QUOTED_IDENTIFIER ON -- allows to use quotes same way as brackets, otherwise thay are same as apostrophes
+
+ALTER PROCEDURE <pname>
+AS <statement>
+
+DROP PROCEDURE <pname>
+
+IF OBJECT_ID ('<pname>', 'P') IS NOT NULL
+    DROP PROCEDURE <pname>
+
+EXEC sp_rename '<old pname>', '<new pname>'
+
+sp_help -- info about db objs
+
+-- if # before <pname> it is a local temporary proc
+-- if ## it is global temp proc
+        \end{lstlisting}
+    \end{section}
+    \begin{section}{computed columns}
+        Computed column is column that aggregates existing columns, so it can't be SET, but can be SELECTed
+        \begin{lstlisting}[ language=SQL
+                          , deletekeywords={IDENTITY}
+                          , deletekeywords={[2]INT}
+                          , morekeywords={clustered}
+                          , framesep=8pt
+                          , xleftmargin=40pt
+                          , framexleftmargin=40pt
+                          , frame=tb
+                          , framerule=0pt 
+                          ]
+            CREATE TABLE <tname> ( <col1>
+                                 , <col2>
+                                 ...
+                                 , <colN> AS <col1> * <col2> PERSISTED
+                                 ) -- e.g.
+                                 -- PERSISTED is optional(it is stored rather than calculated on the fly)
+
+            ALTER TABLE <tname>
+            ADD <colname> AS (<col1> * <col2>) -- e.g.
+        \end{lstlisting}
+    \end{section}
+    \begin{section}{partitions}
+        
+    \end{section}
+    \begin{section}{geography and geometry types}
+    
+    \end{section}
 \end{document}
