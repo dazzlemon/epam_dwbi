@@ -103,21 +103,39 @@ sp_help -- info about db objs
                           , frame=tb
                           , framerule=0pt 
                           ]
-            CREATE TABLE <tname> ( <col1>
-                                 , <col2>
-                                 ...
-                                 , <colN> AS <col1> * <col2> PERSISTED
-                                 ) -- e.g.
-                                 -- PERSISTED is optional(it is stored rather than calculated on the fly)
+CREATE TABLE <tname> ( <col1>
+                     , <col2>
+                     ...
+                     , <colN> AS <col1> * <col2> PERSISTED
+                     ) -- e.g.
+                     -- PERSISTED is optional(it is stored rather than calculated on the fly)
 
-            ALTER TABLE <tname>
-            ADD <colname> AS (<col1> * <col2>) -- e.g.
+ALTER TABLE <tname>
+ADD <colname> AS (<col1> * <col2>) -- e.g.
         \end{lstlisting}
     \end{section}
     \begin{section}{partitions}
-        
+        \begin{lstlisting}[ language=SQL
+                         , deletekeywords={IDENTITY}
+                         , deletekeywords={[2]INT}
+                         , morekeywords={clustered}
+                         , framesep=8pt
+                         , xleftmargin=40pt
+                         , framexleftmargin=40pt
+                         , frame=tb
+                         , framerule=0pt 
+                         ]
+CREATE PARTITION FUNCTION <pfname> (<input param type>)
+AS RANGE <LEFT | RIGHT> FOR VALUES(<boundary vals>)
+-- LEFT | RIGHT is optional    
+-- boundary vals are optional
+
+CREATE PARTITION SCHEME <psname>
+AS PARTITION <pfname> TO (<filegroups>)
+        \end{lstlisting}
     \end{section}
     \begin{section}{geography and geometry types}
-    
+        \url{https://www.sqlshack.com/spatial-data-types-in-sql-
+        server/}
     \end{section}
 \end{document}

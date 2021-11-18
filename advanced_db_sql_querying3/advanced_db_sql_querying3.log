@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.10.4)  18 NOV 2021 13:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.10.4)  18 NOV 2021 13:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -289,23 +289,28 @@ LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 8
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying3/advanced_db_sql_querying3.aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 139.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 139.
+ [2] (/home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying3/advanced_db_sql_querying3.aux)
 Package rerunfilecheck Info: File `advanced_db_sql_querying3.out' has not changed.
 (rerunfilecheck)             Checksum: A4F1052EAEE69990ABCFE413F57E2876;542.
  ) 
 Here is how much of TeX's memory you used:
- 10277 strings out of 478994
- 147563 string characters out of 5864751
- 803448 words of memory out of 5000000
- 27629 multiletter control sequences out of 15000+600000
- 405134 words of font info for 33 fonts, out of 8000000 for 9000
+ 10302 strings out of 478994
+ 147869 string characters out of 5864751
+ 800448 words of memory out of 5000000
+ 27644 multiletter control sequences out of 15000+600000
+ 405302 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,6n,74p,328b,1954s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on /home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying3/advanced_db_sql_querying3.pdf (2 pages, 53556 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
+Output written on /home/dazzlemon/github/epam_dwbi/advanced_db_sql_querying3/advanced_db_sql_querying3.pdf (2 pages, 67305 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
- 49 named destinations out of 1000 (max. 500000)
+ 124 PDF objects out of 1000 (max. 8388607)
+ 112 compressed objects within 2 object streams
+ 58 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
