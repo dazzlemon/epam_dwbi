@@ -80,10 +80,22 @@ AS
 GO
 
 EXEC sp_ChangeCity;
+GO
 
 -- 2. Construct a stored proc, named sp_GetLastName, that accepts an input parameter 
 -- named EmployeeID and returns the last name of that employee (you can join 
 -- Employee table and Person). 
+
+CREATE PROC sp_GetLastName @EmployeeId INT
+AS
+    SELECT P.LastName
+    FROM HumanResources.Employee AS e
+        JOIN Person.Person AS p
+            ON p.BusinessEntityID = e.BusinessEntityID
+    WHERE e.BusinessEntityID = @EmployeeId;
+GO
+
+EXEC sp_GetLastName @EmployeeId = 30;
 
 -- SQL XML grouping and ranking functions 
 -- 1. Use GROUPING SETS, ROLLUP, CUBE with grouping set containing 5 columns. 
