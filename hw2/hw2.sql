@@ -67,10 +67,20 @@ GO
 
 UPDATE HumanResources.vEmployee
 SET FirstName = 'FirstName';
+GO
 
 -- SQL Stored Procedures 
 -- 1. Create a stored procedure sp_ChangeCity which changes all Cities in the table 
--- [Person].[Address] into Upper Case. 
+-- [Person].[Address] into Upper Case.
+
+CREATE PROC sp_ChangeCity
+AS
+    UPDATE Person.Address
+    SET City = UPPER(City);
+GO
+
+EXEC sp_ChangeCity;
+
 -- 2. Construct a stored proc, named sp_GetLastName, that accepts an input parameter 
 -- named EmployeeID and returns the last name of that employee (you can join 
 -- Employee table and Person). 
