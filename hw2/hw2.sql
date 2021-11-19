@@ -51,10 +51,22 @@ GO
 
 DELETE TOP (1)
 FROM HumanResources.Department;
-
+GO
 -- 2. Construct a trigger, named trgUpdate, that is affected by UPDATE Transact-SQL 
 -- statements in the [HumanResources].[ vEmployee] view. This trigger should simply 
--- raise an error instead of update that indicates that data cannot be updated at this view. 
+-- raise an error instead of update that indicates that data cannot be updated at this view.
+
+CREATE TRIGGER trgUpdate
+ON HumanResources.vEmployee
+INSTEAD OF UPDATE
+AS RAISERROR( N'UPDATE is not allowed for HumanResources.vEmployee'
+            , 14
+            , 1
+            );
+GO
+
+UPDATE HumanResources.vEmployee
+SET FirstName = 'FirstName';
 
 -- SQL Stored Procedures 
 -- 1. Create a stored procedure sp_ChangeCity which changes all Cities in the table 
