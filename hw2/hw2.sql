@@ -154,3 +154,11 @@ GROUP BY CUBE
 -- SQL Geography and geometry types 
 -- 1. GEOMETRY = ART: draw anything using different Geometry datatypes (let your 
 -- imagination run wild and enjoy this subtask!)
+
+-- Can't test it (Azure data studio doesn't visualise geometry, or i didn't find how),
+-- but it should be a smiley face
+
+SELECT geometry::STGeomFromText('CIRCULARSTRING(0 4, 4 0, 0 -4, -4 0, 0 4)', 0) AS [circle]
+     , geometry::STGeomFromText('CIRCULARSTRING(-2 -2, 0 -3, 2 -2)', 0)         AS mouth
+     , geometry::STGeomFromText('POINT(-2 2)', 0)                               AS leftEye
+     , geometry::STGeomFromText('POINT( 2 2)', 0)                               AS rigthEye
