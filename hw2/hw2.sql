@@ -16,7 +16,42 @@ SELECT * FROM NumberCust
 -- SQL Tiggers 
 -- 1. Construct a trigger, named trgDelete, that is affected DELETE Transact-SQL 
 -- statements in the [HumanResources].[Department] table. This trigger should write 
--- the data which was deleted to separate table (you need to create this table). 
+-- the data which was deleted to separate table (you need to create this table).
+
+SELECT * INTO HumanResources.DepartmentDeleted
+FROM HumanResources.Department
+WHERE 0 = 1; -- Copy structure w/o data
+GO
+
+CREATE TRIGGER trgDelete
+ON HumanResources.Department
+AFTER DELETE
+AS
+    DECLARE @DepartmentID SMALLINT
+          , @Name         NVARCHAR
+          , @GroupName    NVARCHAR
+          , @ModifiedDate DATETIME
+    SELECT @DepartmentID = DepartmentID FROM DELETED
+    SELECT @Name         = [Name]       FROM DELETED
+    SELECT @GroupName    = GroupName    FROM DELETED
+    SELECT ModifiedDate  = GETDATE()
+
+    INSERT INTO HumanResources.DepartmentDeleted
+        ( DepartmentID
+        , [Name]
+        , GroupName
+        , ModifiedDate
+        )
+    VALUES ( @DepartmentID
+           , @Name
+           , @GroupName
+           , @ModifiedDate
+           )
+GO
+
+DELETE TOP (1)
+FROM HumanResources.Department;
+
 -- 2. Construct a trigger, named trgUpdate, that is affected by UPDATE Transact-SQL 
 -- statements in the [HumanResources].[ vEmployee] view. This trigger should simply 
 -- raise an error instead of update that indicates that data cannot be updated at this view. 
