@@ -98,7 +98,50 @@ GO
 EXEC sp_GetLastName @EmployeeId = 30;
 
 -- SQL XML grouping and ranking functions 
--- 1. Use GROUPING SETS, ROLLUP, CUBE with grouping set containing 5 columns. 
+-- 1. Use GROUPING SETS, ROLLUP, CUBE with grouping set containing 5 columns.
+
+SELECT CountryRegionName
+     , StateProvinceName
+     , City
+     , JobTitle
+     , Title
+FROM HumanResources.vEmployee
+GROUP BY GROUPING SETS
+    ( (CountryRegionName, StateProvinceName, City, JobTitle, Title)
+    , (CountryRegionName, StateProvinceName, City, JobTitle)
+    , (CountryRegionName, StateProvinceName, City)
+    , (CountryRegionName, StateProvinceName)
+    , (CountryRegionName)
+    );
+
+-- same as previous but shorter
+SELECT CountryRegionName
+     , StateProvinceName
+     , City
+     , JobTitle
+     , Title
+FROM HumanResources.vEmployee
+GROUP BY ROLLUP
+    ( CountryRegionName
+    , StateProvinceName
+    , City
+    , JobTitle
+    , Title
+    );
+
+SELECT CountryRegionName
+     , StateProvinceName
+     , City
+     , JobTitle
+     , Title
+FROM HumanResources.vEmployee
+GROUP BY CUBE
+    ( CountryRegionName
+    , StateProvinceName
+    , City
+    , JobTitle
+    , Title
+    );
 
 -- SQL XML data-types 
 -- 1. Create your own XML script (root must containt your name, e.g. 
@@ -110,4 +153,4 @@ EXEC sp_GetLastName @EmployeeId = 30;
 
 -- SQL Geography and geometry types 
 -- 1. GEOMETRY = ART: draw anything using different Geometry datatypes (let your 
--- imagination run wild and enjoy this subtusk!)
+-- imagination run wild and enjoy this subtask!)
