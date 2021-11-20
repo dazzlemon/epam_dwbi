@@ -145,8 +145,46 @@ GROUP BY CUBE
 
 -- SQL XML data-types 
 -- 1. Create your own XML script (root must containt your name, e.g. 
--- <bookstore_NameSurname>) and convert it into table. 
+-- <bookstore_NameSurname>) and convert it into table.
 
+CREATE TABLE dbo.xmlBook (book XML);
+
+INSERT INTO dbo.xmlBook VALUES
+('
+<Book_DanielSafonov>
+<Book>
+    <Id>1</Id>
+    <Author>Stephen Hawking</Author>
+    <Name>A Brief History of Time</Name>
+    <Year>1988</Year>
+</Book>
+<Book>
+    <Id>2</Id>
+    <Author>Susanna S. Epp</Author>
+    <Name>Discrete Mathematics with Applications. 4th ed.</Name>
+    <Year>2011</Year>
+</Book>
+<Book>
+    <Id>3</Id>
+    <Author>Miran Lipovaca</Author>
+    <Name>Learn You a Haskell for Great Good!</Name>
+    <Year>2011</Year>
+</Book>
+</Book_DanielSafonov>
+')
+
+DECLARE @hBooks INT
+DECLARE @xmlBooks XML
+
+SET @xmlBooks = (SELECT * FROM dbo.xmlBook);
+
+EXEC sp_xml_preparedocument @hBooks OUTPUT, @xmlBooks;
+SELECT *
+FROM OPENXML( @hBooks
+            , 'Book_DanielSafonov/Book'
+            , 2)
+WITH (Id INT, Author TEXT, [Name] TEXT, [Year] INT);
+EXEC sp_xml_removedocument @hBooks;
 -- SQL partitions 
 -- 1. Create your own partitions in database (NameSurname_ParititionDB), partition 
 -- function, scheme and table. 
