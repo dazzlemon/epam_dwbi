@@ -187,7 +187,58 @@ WITH (Id INT, Author TEXT, [Name] TEXT, [Year] INT);
 EXEC sp_xml_removedocument @hBooks;
 -- SQL partitions 
 -- 1. Create your own partitions in database (NameSurname_ParititionDB), partition 
--- function, scheme and table. 
+-- function, scheme and table.
+
+CREATE DATABASE DanielSafonov_PartitionDB;
+
+ALTER DATABASE DanielSafonov_PartitionDB ADD FILEGROUP fg1;
+ALTER DATABASE DanielSafonov_PartitionDB ADD FILEGROUP fg2;
+ALTER DATABASE DanielSafonov_PartitionDB ADD FILEGROUP fg3;
+ALTER DATABASE DanielSafonov_PartitionDB ADD FILEGROUP fg4;
+
+ALTER DATABASE DanielSafonov_PartitionDB
+ADD FILE ( NAME = f1
+         , FILENAME = '/var/opt/mssql/data/DanielSafonov_PartitionDB_f1.ndf'
+         )
+TO FILEGROUP fg1;
+
+ALTER DATABASE DanielSafonov_PartitionDB
+ADD FILE ( NAME = f2
+         , FILENAME = '/var/opt/mssql/data/DanielSafonov_PartitionDB_f2.ndf'
+         )
+TO FILEGROUP fg2;
+
+ALTER DATABASE DanielSafonov_PartitionDB
+ADD FILE ( NAME = f3
+         , FILENAME = '/var/opt/mssql/data/DanielSafonov_PartitionDB_f3.ndf'
+         )
+TO FILEGROUP fg3;
+
+ALTER DATABASE DanielSafonov_PartitionDB
+ADD FILE ( NAME = f4
+         , FILENAME = '/var/opt/mssql/data/DanielSafonov_PartitionDB_f4.ndf'
+         )
+TO FILEGROUP fg4;
+
+CREATE PARTITION FUNCTION pf1 (INT)
+AS RANGE LEFT FOR VALUES (1000, 2000, 3000);
+
+CREATE PARTITION SCHEME ps1
+AS PARTITION pf1
+TO (fg1, fg2, fg3, fg4);
+
+CREATE TABLE dbo.t1 ( Id INT PRIMARY KEY
+                    , [Name] TEXT
+                    )
+ON ps1 (Id);
+
+INSERT INTO t1
+VALUES (1001, 'Daniel')
+     , (2001, 'Peter')
+     , (3003, 'Michael')
+     ;
+
+SELECT $PARTITION.pf1(Id) AS 'PartNum', * FROM t1;
 
 -- SQL Geography and geometry types 
 -- 1. GEOMETRY = ART: draw anything using different Geometry datatypes (let your 
