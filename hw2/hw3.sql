@@ -102,3 +102,31 @@ SELECT Era
      , COUNT(*) AS EventCount
 FROM CteEra
 GROUP BY Era;
+
+-- 7
+USE DoctorWho;
+
+WITH EpisodeSeriesYear AS
+(
+    SELECT EpisodeId
+         , SeriesNumber
+         , YEAR(EpisodeDate) AS EpisodeYear
+    FROM tblEpisode
+)
+SELECT EpisodeYear
+     , [1] AS [Series 1 Episode Count]
+     , [2] AS [Series 2 Episode Count]
+     , [3] AS [Series 3 Episode Count]
+     , [4] AS [Series 4 Episode Count]
+     , [5] AS [Series 5 Episode Count]
+FROM EpisodeSeriesYear AS esy
+PIVOT
+(
+    COUNT(EpisodeID)
+    FOR SeriesNumber IN ( [1]
+                        , [2]
+                        , [3]
+                        , [4]
+                        , [5]
+                        )
+) AS pt;
