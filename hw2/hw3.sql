@@ -87,3 +87,18 @@ FROM ManyCountries as mc
         ON e.CountryID = c.CountryID;
 
 -- 6
+WITH CteEra AS
+(
+    SELECT e.EventID
+         , CASE
+                WHEN YEAR(e.EventDate) < 1900 THEN '19th century and earlier'
+                WHEN YEAR(e.EventDate) < 2000 THEN '20th century'
+                ELSE '21st century'
+           END AS Era
+    FROM tblEvent AS e
+)
+
+SELECT Era
+     , COUNT(*) AS EventCount
+FROM CteEra
+GROUP BY Era;
