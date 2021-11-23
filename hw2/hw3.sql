@@ -53,4 +53,37 @@ SELECT EventName
      , EventDetails
 FROM ThisAndThat
 WHERE [If This] = 1
-  AND [If That] = 1; 
+  AND [If That] = 1;
+
+-- 5
+WITH ManyCountries AS
+(
+    SELECT c.ContinentID
+    FROM tblContinent AS c
+        JOIN tblCountry AS cr
+            ON cr.ContinentID = c.ContinentID
+    GROUP BY c.ContinentID
+    HAVING COUNT(c.ContinentID) > 3
+), FewEvents AS
+(
+    SELECT c.ContinentID
+    FROM tblContinent   AS c
+        JOIN tblCountry AS cr
+            ON c.ContinentID = cr.ContinentID
+        JOIN tblEvent   AS e
+            ON e.CountryID = cr.CountryID
+    GROUP BY c.ContinentID
+    HAVING COUNT(c.ContinentID) < 10
+)
+
+SELECT *
+FROM ManyCountries as mc
+    JOIN FewEvents as fe
+        ON mc.ContinentID = fe.ContinentID
+-- \/ \/ \/ \/ display all events \/ \/ \/ \/
+    JOIN tblCountry as c
+        ON c.ContinentID = mc.ContinentID
+    JOIN tblEvent as e
+        ON e.CountryID = c.CountryID;
+
+-- 6
